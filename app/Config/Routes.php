@@ -34,8 +34,10 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::index');
 $routes->get('/login', 'LoginController::index');
 
-$routes->get('/admin/formUser', 'AdminController::formUser');
-$routes->get('/admin/listUser', 'AdminController::listUser');
+$routes->get('/admin/formUser', 'AdminController::formUser', ['filter' => 'role:SUPERADMIN']);
+$routes->get('/admin/listUser', 'AdminController::listUser', ['filter' => 'role:SUPERADMIN']);
+$routes->add('/admin/editUser/(:segment)', 'AdminController::editUser/$1', ['filter' => 'role:SUPERADMIN']);
+$routes->get('/admin/hapusUser/(:segment)', 'AdminController::hapusUser/$1', ['filter' => 'role:SUPERADMIN']);
 
 /*
  * --------------------------------------------------------------------
