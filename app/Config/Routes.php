@@ -34,10 +34,16 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::index');
 $routes->get('/login', 'LoginController::index');
 
+//Routes For Admin
 $routes->get('/admin/formUser', 'AdminController::formUser', ['filter' => 'role:SUPERADMIN']);
 $routes->get('/admin/listUser', 'AdminController::listUser', ['filter' => 'role:SUPERADMIN']);
 $routes->add('/admin/editUser/(:segment)', 'AdminController::editUser/$1', ['filter' => 'role:SUPERADMIN']);
 $routes->get('/admin/hapusUser/(:segment)', 'AdminController::hapusUser/$1', ['filter' => 'role:SUPERADMIN']);
+
+//Routes For User
+$routes->get('/user/listSurat', 'UserController::index');
+$routes->get('/user/formSurat', 'UserController::formSurat');
+$routes->add('/user/registSurat', 'UserController::registSurat');
 
 /*
  * --------------------------------------------------------------------

@@ -36,7 +36,9 @@
   <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top d-flex align-items-center">
     <div class="d-flex align-items-center justify-content-between">
-      <img src="<?= base_url(); ?>/assets/img/bcasLogo.jpeg" alt="" width="200">
+      <a href="/">
+        <img src="<?= base_url(); ?>/assets/img/bcasLogo.jpeg" alt="" width="200">
+      </a>
       <i class="bi bi-list toggle-sidebar-btn ms-4"></i>
     </div><!-- End Logo -->
 
@@ -44,7 +46,11 @@
       <ul class="d-flex align-items-center">
         <li class="nav-item dropdown pe-3">
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <i class="fa-solid fa-crown fa-2xl"></i>
+            <?php if(in_groups('SUPERADMIN')) : ?>
+              <i class="fas fa-user-secret fa-2xl"></i>
+            <?php else : ?>
+              <i class="fas fa-user-alt fa-2xl"></i>
+            <?php endif; ?>
             <span class="d-none d-md-block dropdown-toggle ps-2"><?= user()->username; ?></span>
           </a><!-- End Profile Iamge Icon -->
 

@@ -30,13 +30,13 @@
         <li>
         <a href="components-alerts.html">
             <i class="fa-solid fa-envelopes-bulk"></i>
-            <span>Daftar Nomor Surat</span>
+            <span>Daftar Surat</span>
         </a>
         </li>
         <li>
-        <a href="components-alerts.html">
+        <a href="/user/registSurat">
             <i class="fa-solid fa-circle-plus"></i>
-            <span>Tambah Nomor Surat</span>
+            <span>Registrasi Surat</span>
         </a>
         </li>
     </ul>
