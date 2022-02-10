@@ -5,12 +5,12 @@
     <div class="row justify-content-center">
         <div class="col-md-6">
             <?= view('Myth\Auth\Views\_message_block'); ?>
-            <form action="" method="post">
+            <form action="/user/registSurat" method="post">
                 <?= csrf_field() ?>
 
                 <div class="form-group mb-3">
                     <label for="tanggal_regist" class="form-label ">Tanggal Registrasi</label>
-                    <input type="text" class="form-control" id="tanggal_regist" name="tanggal_regist" value="<?= date("Y-m-d"); ?>" readonly>
+                    <input type="text" class="form-control" id="tgl_regist" name="tgl_regist" value="<?= date("Y-m-d"); ?>" readonly>
                 </div>
                 
                 <div class="form-group mb-3">
@@ -21,12 +21,26 @@
                 <div class="form-group row">
                     <div class="col-sm-6 mb-3">
                         <label for="dept_asal" class="form-label ">Department Asal</label>
-                        <input type="text" class="form-control" id="dept_asal" name="dept_asal" autocomplete="off" required>
+                        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="dept_asal" id="dept_asal">
+                            <option selected> ---- </option>
+                            <option value="OPR">OPR</option>
+                            <option value="PPO">PPO</option>
+                            <option value="STL">STL</option>
+                            <option value="PTI">PTI</option>
+                            <option value="STI">STI</option>
+                        </select>
                     </div>
 
                     <div class="col-sm-6 mb-3">
                         <label for="dept_tujuan" class="form-label">Department Tujuan</label>
-                        <input type="text" class="form-control" id="dept_tujuan" name="dept_tujuan" autocomplete="off" required>
+                        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="dept_tujuan" id="dept_tujuan">
+                            <option selected> ---- </option>
+                            <option value="OPR">OPR</option>
+                            <option value="PPO">PPO</option>
+                            <option value="STL">STL</option>
+                            <option value="PTI">PTI</option>
+                            <option value="STI">STI</option>
+                        </select>
                     </div>
                 </div>
 

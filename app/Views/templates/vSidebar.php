@@ -28,13 +28,13 @@
     </a>
     <ul id="surat" class="nav-content collapse " data-bs-parent="#sidebar-nav">
         <li>
-        <a href="components-alerts.html">
+        <a href="/user/listSurat">
             <i class="fa-solid fa-envelopes-bulk"></i>
             <span>Daftar Surat</span>
         </a>
         </li>
         <li>
-        <a href="/user/registSurat">
+        <a href="/user/formSurat">
             <i class="fa-solid fa-circle-plus"></i>
             <span>Registrasi Surat</span>
         </a>
