@@ -50,9 +50,9 @@
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
+              <a class="dropdown-item d-flex align-items-center" href="<?= base_url('logout'); ?>">
                 <i class="bi bi-box-arrow-right"></i>
-                <span>Sign Out</span>
+                <span>Log Out</span>
               </a>
             </li>
           </ul><!-- End Profile Dropdown Items -->
@@ -67,6 +67,7 @@
   </aside><!-- End Sidebar-->
 
   <main id="main" class="main">
+    <h3><?= $judul; ?></h3>
     <?= $this->renderSection('content'); ?>
   </main><!-- End #main -->
 

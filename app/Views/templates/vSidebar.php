@@ -5,13 +5,13 @@
     </a>
     <ul id="user" class="nav-content collapse " data-bs-parent="#sidebar-nav">
         <li>
-        <a href="components-alerts.html">
+        <a href="/admin/listUser">
             <i class="fa-solid fa-address-card"></i>
             <span>Data User</span>
         </a>
         </li>
         <li>
-        <a href="components-alerts.html">
+        <a href="/admin/formUser">
             <i class="fa-solid fa-user-plus"></i><span>Tambah User</span>
         </a>
         </li>

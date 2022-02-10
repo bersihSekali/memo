@@ -60,18 +60,20 @@
                     <p class="text-center small">Silahkan Masukkan Nama Pengguna dan Kata Sandi</p>
                   </div>
 
-                  <form class="row g-3 needs-validation" novalidate>
+                  <?= view('Myth\Auth\Views\_message_block') ?>
 
+                  <form action="<?= route_to('login') ?>" method="post" class="row g-3 needs-validation" novalidate>
+                    <?= csrf_field() ?>
                     <div class="col-12">
                       <label for="username" class="form-label">Nama Pengguna</label>
                       <div class="input-group has-validation">
-                        <input type="text" name="username" class="form-control" id="username" required>
+                        <input type="text" name="login" class="form-control <?php if(session('errors.login')) : ?>is-invalid<?php endif ?>" id="username" autocomplete="off" required>
                       </div>
                     </div>
 
                     <div class="col-12">
                       <label for="password" class="form-label">Kata Sandi</label>
-                      <input type="password" name="password" class="form-control" id="password" required>
+                      <input type="password" name="password" class="form-control <?php if(session('errors.password')) : ?>is-invalid<?php endif ?>" id="password" required>
                     </div>
 
                     <div class="col-12">
