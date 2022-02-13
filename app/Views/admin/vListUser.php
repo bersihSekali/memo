@@ -67,6 +67,7 @@
                                     <option value="4">STL</option>
                                     <option value="5">PTI</option>
                                     <option value="6">STI</option>
+                                    <option value="7">ADMIN</option>
                                 </select>
                             </div>
                             

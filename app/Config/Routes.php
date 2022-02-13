@@ -44,6 +44,14 @@ $routes->get('/admin/hapusUser/(:segment)', 'AdminController::hapusUser/$1', ['f
 $routes->get('/user/listSurat', 'UserController::index');
 $routes->get('/user/formSurat', 'UserController::formSurat');
 $routes->add('/user/registSurat', 'UserController::registSurat');
+$routes->get('/user/formEditSurat/(:segment)', 'UserController::formEditSurat/$1');
+$routes->add('/user/editSurat/(:segment)', 'UserController::editSurat/$1');
+
+//Routes For Update Surat
+$routes->add('/user/inKadept/(:segment)', 'UserController::inKadept/$1');
+$routes->add('/user/outKadept/(:segment)', 'UserController::outKadept/$1');
+$routes->add('/user/inKadiv/(:segment)', 'UserController::inKadiv/$1');
+$routes->add('/user/outKadiv/(:segment)', 'UserController::outKadiv/$1');
 
 /*
  * --------------------------------------------------------------------
