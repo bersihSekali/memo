@@ -59,12 +59,13 @@
 
                 <div class="modal-body">
                     <pre>Tanggal Registrasi   :<?= $mail->tgl_regist; ?></pre>
+                    <pre>Tanggal Edit         :<?= $mail->tgl_edit; ?></pre>
                     <pre>Nomor Surat          :<?= $mail->no_surat; ?></pre>
                     <pre>PIC                  :<?= $mail->pic; ?></pre>
                     <pre>Department Asal      :<?= $mail->dept_asal; ?></pre>
                     <pre>Department Tujuan    :<?= $mail->dept_tujuan; ?></pre>
                     <pre>Perihal              :<?= $mail->perihal; ?></pre>
-                    <pre>Keterangan           :</pre>
+                    <p>Keterangan           :</p>
                     <table class="table table-bordered">
                       <thead>
                         <tr>
@@ -179,22 +180,24 @@
                     </table>
                 </div>
 
-                <div class="modal-footer">
-                  <?php if((($mail->status) < 4) && (in_groups('OPR') || in_groups('STL') || in_groups('PTI') || in_groups('STI') || in_groups('PPO'))) : ?>
-                    <a href="/user/formEditSurat/<?= $mail->id_surat; ?>"><button type="button" class="btn" style="background-color: #03045e; color: white">Edit Surat</button></a>
-                  <?php endif; ?>
-
-                  <?php if(($mail->status) == 0) : ?>
-                    <a href="/user/inKadept/<?= $mail->id_surat; ?>"><button type="button" class="btn btn-primary">Konfirmasi IN Kadept</button></a>
-                  <?php elseif(($mail->status) == 1) : ?>
-                    <a href="/user/outKadept/<?= $mail->id_surat; ?>"><button type="button" class="btn btn-primary">Konfirmasi OUT Kadept</button></a>
-                  <?php elseif(($mail->status) == 2) : ?>
-                    <a href="/user/inKadiv/<?= $mail->id_surat; ?>"><button type="button" class="btn btn-primary">Konfirmasi IN Kadiv</button></a>
-                  <?php elseif(($mail->status) == 3) : ?>
-                    <a href="/user/outKadiv/<?= $mail->id_surat; ?>"><button type="button" class="btn btn-primary">Konfirmasi OUT Kadiv</button></a>
-                  <?php else : ?>
-                  <?php endif; ?>
-                </div>
+                <?php if(in_groups('OPR') || in_groups('STL') || in_groups('STI') || in_groups('PTI') || in_groups('PPO')) : ?>
+                  <div class="modal-footer">
+                    <?php if((($mail->status) < 4) && (in_groups('OPR') || in_groups('STL') || in_groups('PTI') || in_groups('STI') || in_groups('PPO'))) : ?>
+                      <a href="/user/formEditSurat/<?= $mail->id_surat; ?>"><button type="button" class="btn" style="background-color: #03045e; color: white">Edit Surat</button></a>
+                    <?php endif; ?>
+  
+                    <?php if(($mail->status) == 0) : ?>
+                      <a href="/user/inKadept/<?= $mail->id_surat; ?>"><button type="button" class="btn btn-primary">Konfirmasi IN Kadept</button></a>
+                    <?php elseif(($mail->status) == 1) : ?>
+                      <a href="/user/outKadept/<?= $mail->id_surat; ?>"><button type="button" class="btn btn-primary">Konfirmasi OUT Kadept</button></a>
+                    <?php elseif(($mail->status) == 2) : ?>
+                      <a href="/user/inKadiv/<?= $mail->id_surat; ?>"><button type="button" class="btn btn-primary">Konfirmasi IN Kadiv</button></a>
+                    <?php elseif(($mail->status) == 3) : ?>
+                      <a href="/user/outKadiv/<?= $mail->id_surat; ?>"><button type="button" class="btn btn-primary">Konfirmasi OUT Kadiv</button></a>
+                    <?php else : ?>
+                    <?php endif; ?>
+                  </div>
+                <?php endif; ?>
             </div>
         </div>
     </div>

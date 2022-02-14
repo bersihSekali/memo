@@ -32,6 +32,7 @@
                 <span>Daftar Surat</span>
             </a>
             </li>
+            
             <li>
                 <?php if(in_groups('OPR') || in_groups('STL') || in_groups('STI') || in_groups('PPO') || in_groups('PTI')) : ?>
                     <a href="/user/formSurat">

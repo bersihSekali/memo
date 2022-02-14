@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-6">
             <?= view('Myth\Auth\Views\_message_block'); ?>
-            <form action="/user/registSurat" method="post">
+            <form action="/user/registSurat" method="post" enctype="multipart/form-data">
                 <?= csrf_field() ?>
 
                 <div class="form-group mb-3">
@@ -52,6 +52,13 @@
                 <div class="form-group mb-3">
                     <label for="pic" class="form-label ">Perihal</label>
                     <textarea class="form-control" aria-label="With textarea" name="perihal" required></textarea>
+                </div>
+
+                <div class="mb-3">
+                    <input class="form-control <?= ($validation->hasError('file')) ? 'is-invalid' : ''; ?>" type="file" id="file" name="file">
+                    <div class="invalid-feedback">
+                        <?= $validation->getError(); ?>
+                    </div>
                 </div>
 
                 <button type="submit" class="btn btn-primary">Simpan</button>

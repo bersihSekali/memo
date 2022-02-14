@@ -90,9 +90,11 @@ class UserController extends BaseController
 
     public function formSurat()
     {
+        session();
         $data = [
             'title' => 'Registrasi Surat',
             'judul' => 'Form Registrasi Surat',
+            'validation'=> \Config\Services::validation()
         ];
 
         return view('/user/vFormSurat', $data);
@@ -100,6 +102,16 @@ class UserController extends BaseController
 
     public function registSurat()
     {
+        if(!$this->validate([
+            'file' => [
+                'rules' => 'uploaded[file] | ext_in[file, file.pdf]'
+            ]
+        ])) {
+            // $validation = \Config\Services::validation();
+            // return redirect()->to('/user/vFormSurat')->withInput()->with('validation', $validation);
+            return redirect()->to('/user/formSurat')->withInput();
+        }
+
         $data = [
             'tgl_regist' => $this->request->getPost('tgl_regist'),
             'pic' => $this->request->getPost('pic'),
@@ -260,5 +272,19 @@ class UserController extends BaseController
         ];
 
         return view('user/vFormEditSurat', $data);
+    }
+
+    public function editSurat($id)
+    {
+        $data = [
+            'dept_tujuan' => $this->request->getPost('dept_tujuan'),
+            'perihal' => $this->request->getPost('perihal'),
+            'tgl_edit' => $this->request->getPost('tgl_edit')
+        ];
+
+        $this->builder->where('id_surat', $id);
+        $this->builder->update($data);
+
+        return redirect()->to('/user/listSurat')->with('message', 'Surat Berhasil Di Edit');
     }
 }

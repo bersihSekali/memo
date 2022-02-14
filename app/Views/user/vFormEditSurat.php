@@ -17,7 +17,7 @@
 
                     <div class="form-group mb-3">
                         <label for="tanggal_edit" class="form-label ">Tanggal edit</label>
-                        <input type="text" class="form-control" id="tgl_edit" name="tgl_edit" value="<?= date("Y-m-d H:i:s"); ?>" readonly>
+                        <input type="text" class="form-control" id="tgl_edit" name="tgl_edit" value="<?= date("Y-m-d"); ?>" readonly>
                     </div>
                     
                     <div class="form-group mb-3">
@@ -58,7 +58,7 @@
     
                     <div class="form-group mb-3">
                         <label for="pic" class="form-label ">Perihal</label>
-                        <textarea class="form-control" aria-label="With textarea" name="perihal" value="<?= $mail->perihal; ?>"></textarea>
+                        <textarea class="form-control" aria-label="With textarea" name="perihal" ><?= $mail->perihal; ?></textarea>
                     </div>
     
                     <button type="submit" class="btn btn-primary">Simpan</button>
