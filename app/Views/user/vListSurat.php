@@ -49,6 +49,7 @@
       </div>
   </div>
 
+  <!-- Modal For Showing Detail Data -->
   <?php foreach($mails as $mail) : ?>
     <div class="modal fade" id="mail-<?= $mail->id_surat; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -183,6 +184,7 @@
                 <?php if(in_groups('OPR') || in_groups('STL') || in_groups('STI') || in_groups('PTI') || in_groups('PPO')) : ?>
                   <div class="modal-footer">
                     <?php if((($mail->status) < 4) && (in_groups('OPR') || in_groups('STL') || in_groups('PTI') || in_groups('STI') || in_groups('PPO'))) : ?>
+                      <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#hapus-<?= $mail->id_surat; ?>">Hapus Surat</button>
                       <a href="/user/formEditSurat/<?= $mail->id_surat; ?>"><button type="button" class="btn" style="background-color: #03045e; color: white">Edit Surat</button></a>
                     <?php endif; ?>
   
@@ -198,6 +200,28 @@
                     <?php endif; ?>
                   </div>
                 <?php endif; ?>
+            </div>
+        </div>
+    </div>
+  <?php endforeach; ?>
+
+  <!-- Modal For Ensure Deleting Data -->
+  <?php foreach($mails as $mail) : ?>
+    <div class="modal fade" id="hapus-<?= $mail->id_surat; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Hapus Surat</h5>
+                </div>
+
+                <div class="modal-body">
+                    <h5>Apakah yakin akan menghapus surat ini?</h5>
+                </div>
+
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                  <a href="/user/hapusSurat/<?= $mail->id_surat; ?>"><button type="button" class="btn btn-danger">Hapus</button></a>
+                </div>
             </div>
         </div>
     </div>

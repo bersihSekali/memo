@@ -17,7 +17,7 @@
         }
     ?>
 
-    <h1>Selamat <?= $salam; ?></h1>
+    <h1>Selamat <?= $salam; ?> <?= user()->username; ?></h1>
     
     <div class="container">
         <div class="row">
@@ -28,8 +28,14 @@
                         
                     <div class="card-body">
                         <h5>Total Surat</h5>
-                        <i class="fas fa-copy fa-2xl"></i>
-                        <span><?= $total[0]->id_surat; ?> </span>
+                        <div class="row justify-content-between">
+                            <div class="col">
+                                <h5><?= $total[0]->id_surat; ?> </h5>    
+                            </div>
+                            <div class="col text-end">
+                                <i class="fas fa-copy fa-2xl"></i>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>    
@@ -41,8 +47,14 @@
                         
                     <div class="card-body">
                         <h5>Selesai</h5>
-                        <i class="fas fa-clipboard-check fa-2xl"></i>
-                        <span> <?= $done[0]->done; ?> </span>
+                        <div class="row justify-content-between">
+                            <div class="col">
+                                <h5> <?= $done[0]->done; ?> </h5>    
+                            </div>
+                            <div class="col text-end">
+                                <i class="fas fa-clipboard-check fa-2xl"></i>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -54,8 +66,14 @@
                         
                     <div class="card-body">
                         <h5>Progres</h5>
-                        <i class="fas fa-spinner fa-spin fa-2xl"></i>
-                        <span> <?= $progres[0]->progres; ?> </span>
+                        <div class="row justify-content-between">
+                            <div class="col">
+                                <h5> <?= $progres[0]->progres; ?> </h5>
+                            </div>
+                            <div class="col text-end">
+                                <i class="fas fa-spinner fa-spin fa-2xl"></i>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -67,8 +85,14 @@
                         
                     <div class="card-body">
                         <h5>No Action</h5>
-                        <i class="fa-solid fa-circle-xmark fa-beat fa-2xl"></i>
-                        <span> <?= $noAction[0]->noAction; ?> </span>
+                        <div class="row justify-content-between">
+                            <div class="col">
+                                <h5> <?= $noAction[0]->noAction; ?> </h5>
+                            </div>
+                            <div class="col text-end">
+                                <i class="fa-solid fa-circle-xmark fa-beat fa-2xl"></i>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

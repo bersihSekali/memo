@@ -287,4 +287,11 @@ class UserController extends BaseController
 
         return redirect()->to('/user/listSurat')->with('message', 'Surat Berhasil Di Edit');
     }
+
+    public function hapusSurat($id)
+    {
+        $this->builder->delete(['id_seurat' => $id]);
+        
+        return redirect()->to('/user/listSurat')->with('message', 'Surat Berhasil Di Hapus');
+    }
 }
