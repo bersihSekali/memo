@@ -6,12 +6,6 @@
             <?= view('Myth\Auth\Views\_message_block'); ?>
             <form action="<?= route_to('register') ?>" method="post">
                 <?= csrf_field() ?>
-
-                <div class="form-group mb-3">
-                    <label for="eamail" class="form-label ">Email</label>
-                    <input type="email" class="form-control <?php if(session('errors.email')) : ?>is-invalid<?php endif ?>" id="email" name="email" autocomplete="off" required>
-                </div>
-                
                 <div class="form-group mb-3">
                     <label for="username" class="form-label ">Nama Pengguna</label>
                     <input type="text" class="form-control <?php if(session('errors.username')) : ?>is-invalid<?php endif ?>" id="username" name="username" autocomplete="off" required>
