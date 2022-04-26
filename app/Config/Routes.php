@@ -31,16 +31,19 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'NomorSurat\Home::index');
+$routes->get('/', 'Home::index');
 $routes->get('/login', 'LoginController::index');
 
-//Routes For Admin
+//NomorSurat
+$routes->get('/nomorsurat', 'NomorSurat\Home::index');
+
+//NomorSurat - Routes For Admin
 $routes->get('/admin/formUser', 'NmorSurat\AdminController::formUser', ['filter' => 'role:SUPERADMIN']);
 $routes->get('/admin/listUser', 'NmorSurat\AdminController::listUser', ['filter' => 'role:SUPERADMIN']);
 $routes->add('/admin/editUser/(:segment)', 'NmorSurat\AdminController::editUser/$1', ['filter' => 'role:SUPERADMIN']);
 $routes->get('/admin/hapusUser/(:segment)', 'NmorSurat\AdminController::hapusUser/$1', ['filter' => 'role:SUPERADMIN']);
 
-//Routes For User
+//NomorSurat - Routes For User
 $routes->get('/user/listSurat', 'NomorSurat\UserController::index');
 $routes->get('/user/formSurat', 'NomorSurat\UserController::formSurat');
 $routes->add('/user/registSurat', 'NomorSurat\UserController::registSurat');
