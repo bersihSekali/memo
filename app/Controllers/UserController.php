@@ -26,7 +26,7 @@ class UserController extends BaseController
 
             $data = [
                 'title' => 'Daftar Surat',
-                'judul' => 'Daftar Surat',
+                'judul' => 'Authorization Surat',
                 'mails' => $query->getResult()
             ];
         }

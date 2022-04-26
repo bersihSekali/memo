@@ -11,9 +11,8 @@
               <thead>
                 <tr>
                   <th scope="col">Tanggal Registrasi</th>
-                  <th scope="col">PIC</th>
-                  <th scope="col">Dept. Asal</th>
-                  <th scope="col">Dept. Tujuan</th>
+                  <th scope="col">Satuan Asal</th>
+                  <th scope="col">Satuan Tujuan</th>
                   <th scope="col">Perihal</th>
                   <th scope="col">Keterangan</th>
                 </tr>
@@ -22,7 +21,6 @@
                   <?php foreach($mails as $mail) : ?>
                       <tr id="data" data-bs-toggle="modal" data-bs-target="#mail-<?= $mail->id_surat; ?>" style="cursor: pointer;">
                         <td><?= $mail->tgl_regist; ?></td>
-                        <td><?= $mail->pic; ?></td>
                         <td><?= $mail->dept_asal; ?></td>
                         <td><?= $mail->dept_tujuan; ?></td>
                         <td><?= $mail->perihal; ?></td>
@@ -30,13 +28,13 @@
                           <?php if(($mail->status) == 1) : ?>
                             <span class="badge rounded-pill text-dark" style="background-color: #ffa200;"><i class="fa-solid fa-circle-check"></i> IN Kadept</span>
                           <?php elseif(($mail->status) == 2) : ?>
-                            <span class="badge rounded-pill text-dark" style="background-color: #ffd000;"><i class="fa-solid fa-circle-check"></i> OUT Kadept</span>
+                            <span class="badge rounded-pill text-dark" style="background-color: #ffd000;"></i> Revisi</span>
                           <?php elseif(($mail->status) == 3) : ?>
                             <span class="badge rounded-pill text-dark" style="background-color: #119822;"><i class="fa-solid fa-circle-check"></i> IN Kadiv</span>
                           <?php elseif(($mail->status) == 4) : ?>
-                            <span class="badge rounded-pill bg-success"><i class="fa-solid fa-circle-check"></i> Selesai</span>
+                            <span class="badge rounded-pill bg-success"></i> Terbit</span>
                           <?php else : ?>
-                            <span class="badge rounded-pill bg-dark"><i class="fa-solid fa-circle-xmark"></i> No Action</span>
+                            <span class="badge rounded-pill bg-dark">Menunggu</span>
                           <?php endif; ?>
                         </td>
                       </tr>
@@ -62,124 +60,21 @@
                     <pre>Tanggal Registrasi   :<?= $mail->tgl_regist; ?></pre>
                     <pre>Tanggal Edit         :<?= $mail->tgl_edit; ?></pre>
                     <pre>Nomor Surat          :<?= $mail->no_surat; ?></pre>
-                    <pre>PIC                  :<?= $mail->pic; ?></pre>
+                    <pre>PIC                  :<?= user()->username; ?></pre>
+                    <pre>Satuan Kerja Asal    :STL</pre>
                     <pre>Department Asal      :<?= $mail->dept_asal; ?></pre>
+                    <pre>Department Tujuan    :STL</pre>
                     <pre>Department Tujuan    :<?= $mail->dept_tujuan; ?></pre>
                     <pre>Perihal              :<?= $mail->perihal; ?></pre>
                     <p>Keterangan           :</p>
-                    <table class="table table-bordered">
-                      <thead>
-                        <tr>
-                          <th scope="col"></th>
-                          <th scope="col">Status Kadept</th>
-                          <th scope="col">Status Kadiv</th>
-                        </tr>
-                      </thead>
-                      
-                      <tbody>
-                        <?php if(($mail->status) == 1) : ?>
-                          <tr>
-                            <th scope="row">IN</th>
-                            <td>
-                              <span><i class="fa-solid fa-circle-check"></i> <?= $mail->tgl_masuk_kadept; ?></span> <!-- IN Kadept -->
-                            </td>
-                            <td>
-                              <i class="fa-solid fa-circle-xmark"></i> <!-- IN Kadiv -->
-                            </td>
-                          </tr>
-                          <tr>
-                            <th scope="row">OUT</th>
-                            <td>
-                              <i class="fa-solid fa-circle-xmark"></i> <!-- OUT Kadept -->
-                            </td>
-                            <td>
-                              <i class="fa-solid fa-circle-xmark"></i> <!-- OUT Kadiv -->
-                            </td>
-                          </tr>
-
-                        <?php elseif(($mail->status) == 2) : ?>
-                          <tr>
-                            <th scope="row">IN</th>
-                            <td>
-                              <i class="fa-solid fa-circle-check"></i> <?= $mail->tgl_masuk_kadept; ?> <!-- IN Kadept -->
-                            </td>
-                            <td>
-                              <i class="fa-solid fa-circle-xmark"></i> <!-- IN Kadiv -->
-                            </td>
-                          </tr>
-                          <tr>
-                            <th scope="row">OUT</th>
-                            <td>
-                              <i class="fa-solid fa-circle-check"></i> <?= $mail->tgl_keluar_kadept; ?><!-- OUT Kadept -->
-                            </td>
-                            <td>
-                              <i class="fa-solid fa-circle-xmark"></i> <!-- OUT Kadiv -->
-                            </td>
-                          </tr>
-
-                        <?php elseif(($mail->status) == 3) : ?>
-                          <tr>
-                            <th scope="row">IN</th>
-                            <td>
-                              <i class="fa-solid fa-circle-check"></i> <?= $mail->tgl_masuk_kadept; ?> <!-- IN Kadept -->
-                            </td>
-                            <td>
-                              <i class="fa-solid fa-circle-check"></i> <?= $mail->tgl_masuk_kadiv; ?> <!-- IN Kadiv -->
-                            </td>
-                          </tr>
-                          <tr>
-                            <th scope="row">OUT</th>
-                            <td>
-                              <i class="fa-solid fa-circle-check"></i> <?= $mail->tgl_keluar_kadept; ?> <!-- OUT Kadept -->
-                            </td>
-                            <td>
-                              <i class="fa-solid fa-circle-xmark"></i> <!-- OUT Kadiv -->
-                            </td>
-                          </tr>
-
-                        <?php elseif(($mail->status) == 4) : ?>
-                          <tr>
-                            <th scope="row">IN</th>
-                            <td>
-                              <i class="fa-solid fa-circle-check"></i> <?= $mail->tgl_masuk_kadept; ?> <!-- IN Kadept -->
-                            </td>
-                            <td>
-                              <i class="fa-solid fa-circle-check"></i> <?= $mail->tgl_masuk_kadiv; ?> <!-- IN Kadiv -->
-                            </td>
-                          </tr>
-                          <tr>
-                            <th scope="row">OUT</th>
-                            <td>
-                              <i class="fa-solid fa-circle-check"></i> <?= $mail->tgl_keluar_kadept; ?> <!-- OUT Kadept -->
-                            </td>
-                            <td>
-                              <i class="fa-solid fa-circle-check"></i> <?= $mail->tgl_keluar_kadiv; ?> <!-- OUT Kadiv -->
-                            </td>
-                          </tr>
-
-                        <?php else : ?>
-                          <tr>
-                            <th scope="row">IN</th>
-                            <td>
-                              <i class="fa-solid fa-circle-xmark"> <!-- IN Kadept -->
-                            </td>
-                            <td>
-                              <i class="fa-solid fa-circle-xmark"> <!-- IN Kadiv -->
-                            </td>
-                          </tr>
-                          <tr>
-                            <th scope="row">OUT</th>
-                            <td>
-                              <i class="fa-solid fa-circle-xmark"> <!-- OUT Kadept -->
-                            </td>
-                            <td>
-                              <i class="fa-solid fa-circle-xmark"> <!-- OUT Kadiv -->
-                            </td>
-                          </tr>
-                        <?php endif; ?>
-                      </tbody>
-                    </table>
                 </div>
+
+                <div class="modal-footer">
+                      <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#hapus-<?= $mail->id_surat; ?>">Hapus Surat</button>
+                      <a href="/user/formEditSurat/<?= $mail->id_surat; ?>"><button type="button" class="btn" style="background-color: #03045e; color: white">Edit Surat</button></a>
+  
+                      <a href="/user/inKadept/<?= $mail->id_surat; ?>"><button type="button" class="btn btn-primary">Author</button></a>
+                  </div>
 
                 <?php if(in_groups('OPR') || in_groups('STL') || in_groups('STI') || in_groups('PTI') || in_groups('PPO')) : ?>
                   <div class="modal-footer">
