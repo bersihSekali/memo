@@ -69,7 +69,7 @@
 
   <!-- ======= Sidebar ======= -->
   <aside id="sidebar" class="sidebar">
-    <?= $this->include('templates/vSidebar'); ?>
+    <?= $this->include('nomorSurat/templates/vSidebar'); ?>
   </aside><!-- End Sidebar-->
 
   <main id="main" class="main">

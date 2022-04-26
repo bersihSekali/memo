@@ -1,4 +1,4 @@
-<?= $this->extend('templates/vIndex'); ?>
+<?= $this->extend('nomorSurat/templates/vIndex'); ?>
 
 <?= $this->section('content'); ?>
   <div class="row">

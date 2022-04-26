@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\NomorSurat;
+
+use App\Controllers\BaseController;
 
 class Home extends BaseController
 {
@@ -40,6 +42,6 @@ class Home extends BaseController
         ];
 
         // dd($data);
-        return view('templates/vHome', $data);
+        return view('nomorSurat/templates/vHome', $data);
     }
 }

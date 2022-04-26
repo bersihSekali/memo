@@ -1,4 +1,4 @@
-<?= $this->extend('templates/vIndex'); ?>
+<?= $this->extend('nomorSurat/templates/vIndex'); ?>
 
 <?= $this->section('content'); ?>
     <?php date_default_timezone_set("Asia/Jakarta"); ?>

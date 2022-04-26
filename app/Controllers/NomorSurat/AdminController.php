@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\NomorSurat;
 
 use App\Controllers\BaseController;
 

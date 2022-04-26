@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\NomorSurat;
 
 use App\Controllers\BaseController;
 
@@ -85,7 +85,7 @@ class UserController extends BaseController
             ];
         }
 
-        return view('user/vListSurat', $data);
+        return view('nomorSurat/user/vListSurat', $data);
     }
 
     public function formSurat()
@@ -97,7 +97,7 @@ class UserController extends BaseController
             'validation'=> \Config\Services::validation()
         ];
 
-        return view('/user/vFormSurat', $data);
+        return view('/nomorSurat/user/vFormSurat', $data);
     }
 
     public function registSurat()
@@ -108,8 +108,8 @@ class UserController extends BaseController
             ]
         ])) {
             // $validation = \Config\Services::validation();
-            // return redirect()->to('/user/vFormSurat')->withInput()->with('validation', $validation);
-            return redirect()->to('/user/formSurat')->withInput();
+            // return redirect()->to('/nomorSurat/user/vFormSurat')->withInput()->with('validation', $validation);
+            return redirect()->to('/nomorSurat/user/formSurat')->withInput();
         }
 
         $data = [
@@ -122,7 +122,7 @@ class UserController extends BaseController
         // dd($data);
         $this->builder->insert($data);
 
-        return redirect()->to('/user/formSurat')->with('message', 'Surat Baru Berhasil Ditambahkan');
+        return redirect()->to('/nomorSurat/user/formSurat')->with('message', 'Surat Baru Berhasil Ditambahkan');
     }
 
     public function inKadept($id)
@@ -137,7 +137,7 @@ class UserController extends BaseController
         $this->builder->where('id_surat', $id);
         $this->builder->update($data);
 
-        return redirect()->to('/user/listSurat')->with('message', 'Surat Berhasil Di Update');
+        return redirect()->to('/nomorSurat/user/listSurat')->with('message', 'Surat Berhasil Di Update');
     }
 
     public function outKadept($id)
@@ -152,7 +152,7 @@ class UserController extends BaseController
         $this->builder->where('id_surat', $id);
         $this->builder->update($data);
 
-        return redirect()->to('/user/listSurat')->with('message', 'Surat Berhasil Di Update');
+        return redirect()->to('/nomorSurat/user/listSurat')->with('message', 'Surat Berhasil Di Update');
     }
 
     public function inKadiv($id)
@@ -167,7 +167,7 @@ class UserController extends BaseController
         $this->builder->where('id_surat', $id);
         $this->builder->update($data);
 
-        return redirect()->to('/user/listSurat')->with('message', 'Surat Berhasil Di Update');
+        return redirect()->to('/nomorSurat/user/listSurat')->with('message', 'Surat Berhasil Di Update');
     }
 
     public function outKadiv($id)
@@ -258,7 +258,7 @@ class UserController extends BaseController
         $this->builder->where('id_surat', $id);
         $this->builder->update($data);
         
-        return redirect()->to('/user/listSurat')->with('message', 'Surat Behasil Di Update! Nomor Surat Berhasil Di Tambahkan');
+        return redirect()->to('/nomorSurat/user/listSurat')->with('message', 'Surat Behasil Di Update! Nomor Surat Berhasil Di Tambahkan');
     }
 
     public function formEditSurat($id)
@@ -271,7 +271,7 @@ class UserController extends BaseController
             'mails' => $query->getResult()
         ];
 
-        return view('user/vFormEditSurat', $data);
+        return view('nomorSurat/user/vFormEditSurat', $data);
     }
 
     public function editSurat($id)
@@ -285,13 +285,13 @@ class UserController extends BaseController
         $this->builder->where('id_surat', $id);
         $this->builder->update($data);
 
-        return redirect()->to('/user/listSurat')->with('message', 'Surat Berhasil Di Edit');
+        return redirect()->to('/nomorSurat/user/listSurat')->with('message', 'Surat Berhasil Di Edit');
     }
 
     public function hapusSurat($id)
     {
         $this->builder->delete(['id_seurat' => $id]);
         
-        return redirect()->to('/user/listSurat')->with('message', 'Surat Berhasil Di Hapus');
+        return redirect()->to('/nomorSurat/user/listSurat')->with('message', 'Surat Berhasil Di Hapus');
     }
 }
